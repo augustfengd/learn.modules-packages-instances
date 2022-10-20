@@ -1,28 +1,34 @@
 * setup
 
-** import kubernetes definition
-
 #+begin_src shell
+  # initialize go project (required for referencing kubernetes' api)
   go mod init github.com/augustfengd/learn.modules-packages-instances
 #+end_src
 
-#+begin_src
+#+begin_src shell
+  # initialize cue project
   cue mod init github.com/augustfengd/learn.modules-packages-instances
 #+end_src
 
-#+begin_src
+#+begin_src shell
+  # import kubernetes' api into go project
   go get k8s.io/api/...@kubernetes-1.25.3
 #+end_src
 
-#+begin_src
+#+begin_src shell
+  # import kubernetes' api as cue definitions
   cue get go k8s.io/api/...
 #+end_src
 
 * export
 
+example 1:
+
 #+begin_src shell
   cue export ./manifests.a/nginx --out yaml
 #+end_src
+
+example 2:
 
 #+begin_src shell
   cue export ./manifests.b/production/ -e 'manifests' --out json | yq -P '.[] | split_doc' - # the yaml renderer uses !!binary for secrets, which doesn't seem to go well with `kubectl`.
