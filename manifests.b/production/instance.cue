@@ -13,3 +13,5 @@ components: secrets: {
 		token: "helloworld"
 	}
 }
+
+components: ingress: host: "production.augustfeng.app"

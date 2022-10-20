@@ -1,7 +1,7 @@
 package kubernetes
 
 components: ingress: {
-	host: "augustfeng.app"
+	host: string
 	paths: "/home": {
 		service: "homepage"
 		port:    "8080"
