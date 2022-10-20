@@ -3,7 +3,6 @@ package kubernetes
 import (
 	core "k8s.io/api/core/v1"
 	apps "k8s.io/api/apps/v1"
-	meta "k8s.io/apimachinery/pkg/apis/meta/v1"
 	networking "k8s.io/api/networking/v1"
 	"strings"
 	"encoding/base64"
@@ -24,7 +23,7 @@ import (
 	_name: { let s = strings.Split(image.name, "/"), s[len(s)-1]}
 	_manifests: [
 		apps.#Deployment & {
-			X=metadata: meta.#ObjectMeta & {
+			X=metadata: {
 				"name": _name
 				labels: {
 					"app.kubernetes.io/name":      "example.org"
@@ -42,7 +41,7 @@ import (
 
 		if len(expose.ports) > 0 {
 			core.#Service & {
-				metadata: meta.#ObjectMeta & {
+				metadata: {
 					"name": _name
 					labels: {
 						"app.kubernetes.io/name":      "example.org"
