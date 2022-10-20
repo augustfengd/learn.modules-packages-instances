@@ -1,0 +1,29 @@
+* setup
+
+** import kubernetes definition
+
+#+begin_src shell
+  go mod init github.com/augustfengd/learn.modules-packages-instances
+#+end_src
+
+#+begin_src
+  cue mod init github.com/augustfengd/learn.modules-packages-instances
+#+end_src
+
+#+begin_src
+  go get k8s.io/api/...@kubernetes-1.25.3
+#+end_src
+
+#+begin_src
+  cue get go k8s.io/api/...
+#+end_src
+
+* export
+
+#+begin_src shell
+  cue export ./manifests.a/nginx --out yaml
+#+end_src
+
+#+begin_src shell
+  cue export ./manifests.b/production/ -e 'manifests' --out json | yq -P '.[] | split_doc' - # the yaml renderer uses !!binary for secrets, which doesn't seem to go well with `kubectl`.
+#+end_src
