@@ -19,7 +19,7 @@ import (
 	}
 	args: [...string]
 	X=expose: ports: [string]: number
-	expose: protocol: {for a, b in X.ports {(a): "UDP" | *"TCP"}}
+	expose: protocol: {for a, b in X.ports {(a): "UDP" | *"TCP"}} // NOTE: map each port to a protocol and provide an interface for override.
 
 	_name: { let s = strings.Split(image.name, "/"), s[len(s)-1]}
 	_manifests: [
