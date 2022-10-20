@@ -1,4 +1,4 @@
-* setup
+* initial setup
 
 #+begin_src shell
   # initialize go project (required for referencing kubernetes' api)
@@ -20,7 +20,7 @@
   cue get go k8s.io/api/...
 #+end_src
 
-* export
+* usage
 
 example 1:
 
