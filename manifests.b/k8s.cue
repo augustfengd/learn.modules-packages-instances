@@ -96,8 +96,7 @@ import (
 				"http": "paths": [ for path, s in paths {
 					"path":                    path
 					"pathType":                "Prefix"
-					"backend": service: {name: s.service, port: name: s.port
-					}
+					"backend": service: {name: s.service, port: name: s.port}
 				}]
 			}]
 		}
@@ -105,7 +104,7 @@ import (
 }
 
 components: {
-	frontend: #deployment
+	frontend:   #deployment
 	api:        #deployment
 	secrets:    #secrets
 	ingress:    #ingress
