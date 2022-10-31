@@ -20,6 +20,16 @@
   cue get go k8s.io/api/...
 #+end_src
 
+#+begin_src shell
+  # import argocd's api into go project
+  go get github.com/argoproj/argo-cd/v2@v2.5.0
+#+end_src
+
+#+begin_src shell
+  # import argocd's api as cue definition
+  cue get go github.com/argoproj/argo-cd/v2/pkg/apis/application/v1alpha1
+#+end_src
+
 * usage
 
 example 1:
