@@ -30,6 +30,16 @@
   cue get go github.com/argoproj/argo-cd/v2/pkg/apis/application/v1alpha1
 #+end_src
 
+#+begin_src shell
+  # import traefik's api into go project
+  go get github.com/traefik/traefik/v2@v2.9.4
+#+end_src
+
+#+begin_src shell
+  # import argocd's api as cue definition
+  cue get go github.com/traefik/traefik/v2/pkg/provider/kubernetes/crd/traefik/v1alpha1
+#+end_src
+
 * usage
 
 example 1:
